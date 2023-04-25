@@ -1,3 +1,6 @@
+# based on 'docker-compose.yaml' file from
+# `nonrtric-plt/sim/o1-interface/ntsimulator/docker-compose.yaml` file
+#
 # Docker Compose File to bring up all the required images, so that simulations can be run
 version: '3.7'
 services:
@@ -44,6 +47,8 @@ services:
 
   ntsim-ng-o-ru:
     image: "${DOCKER_REPO}nts-ng-o-ran-ru-fh:${NTS_BUILD_VERSION}"
+    networks:
+      - ransim
     cap_add:
       - SYS_ADMIN
       - NET_ADMIN
@@ -86,6 +91,8 @@ services:
 
   ntsim-ng-o-du:
     image: "${DOCKER_REPO}nts-ng-o-ran-du:${NTS_BUILD_VERSION}"
+    networks:
+      - ransim
     cap_add:
       - SYS_ADMIN
       - NET_ADMIN
@@ -131,13 +138,32 @@ services:
     stop_grace_period: 5m
     hostname: "o-ran-sc-topology-service"
     ports:
-      - ":::58181:8181"
+      - "58181:8181"
     volumes:
         - ./deploy/smo-nts-ng-topology-server/data/tapi-common-operational.json:/opt/dev/deploy/data/tapi-common-operational.json
         - ./deploy/smo-nts-ng-topology-server/data/tapi-common-running.json:/opt/dev/deploy/data/tapi-common-running.json
 
+# Containers in the SMO network
+
+  ves-collector:
+    image: onap/org.onap.dcaegen2.collectors.ves.vescollector
+    networks:
+      - default
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+
 # We can attach to any other docker network, like in the example below
 networks:
   default:
-    external:
-      name: smo_integration
+      name: smo
+      ipam:
+        driver: default
+        config:
+          - subnet: "172.25.0.0/16"
+  ransim:
+      name: ransim
+      ipam:
+        driver: default
+        config:
+          - subnet: "172.24.0.0/16"
