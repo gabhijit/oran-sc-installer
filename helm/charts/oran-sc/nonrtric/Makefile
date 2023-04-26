@@ -14,7 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-COMMON_CHARTS_DIR := nonrtric
+PARENT_CHART := nonrtric
+COMMON_CHARTS_DIR := nonrtric-common aux-common ric-common
 # FIXME OOM-765
 ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 OUTPUT_DIR := $(ROOT_DIR)/dist
