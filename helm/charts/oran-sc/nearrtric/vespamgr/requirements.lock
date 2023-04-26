@@ -1,0 +1,6 @@
+dependencies:
+- name: ric-common
+  repository: http://localhost:6873/
+  version: 3.3.2
+digest: sha256:24e348d901b5ff0cd4dce9fea82a55b08a770eef27073eef18c57c602de69dc6
+generated: "2023-04-26T11:52:35.548273614+05:30"
