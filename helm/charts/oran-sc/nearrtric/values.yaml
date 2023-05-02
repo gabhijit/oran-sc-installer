@@ -14,13 +14,12 @@
 #   limitations under the License.                                             #
 ################################################################################
 
-nonrtric:
+nearrtric:
   persistence:
     mountPath: /dockerdata-nfs
-  installPms: true
   installA1Mediator: true
   installAlarmManager: true
-  installAppMgr: false
+  installAppMgr: true
   installDbaas: true
   installE2Mgr: true
   installE2Term: true

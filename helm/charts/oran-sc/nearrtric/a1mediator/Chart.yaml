@@ -20,7 +20,7 @@ appVersion: "1.0"
 description: A1 Helm chart for Kubernetes
 name: a1mediator
 version: 3.0.0
-kubeVersion: "1.22 - 1.24"
+kubeVersion: ">= 1.22 "
 
 dependencies:
   - name: ric-common

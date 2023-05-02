@@ -7,6 +7,9 @@ spec:
   - http:
       paths:
       - path: {{ include "common.kongpath.ric.appmgr" . }}
+        pathType: Prefix
         backend:
-          serviceName: {{ include "common.servicename.appmgr.http" . }}
-          servicePort: {{ include "common.serviceport.appmgr.http" . }}
+          service:
+            name: {{ include "common.servicename.appmgr.http" . }}
+            port:
+              number: {{ include "common.serviceport.appmgr.http" . }}

@@ -17,17 +17,17 @@ dependencies:
   - name: alarmmanager
     version: ~5.0.0
     repository: "@local"
-    condition: nonrtric.installAlarmManager
+    condition: nearrtric.installAlarmManager
 
-      #- name: appmgr
-      #version: ~3.0.0
-      #repository: "@local"
-      #condition: nearrtric.installAppMgr
+  - name: appmgr
+    version: ~3.0.0
+    repository: "@local"
+    condition: nearrtric.installAppMgr
 
   - name: dbaas
     version: ~2.0.0
     repository: "@local"
-    condition: nonrtric.installDbaas
+    condition: nearrtric.installDbaas
 
   - name: e2mgr
     version: ~3.0.0
@@ -57,14 +57,14 @@ dependencies:
   - name: rtmgr
     version: ~3.0.0
     repository: "@local"
-    condition: neartrric.installRtmgr
+    condition: nearrtric.installRtmgr
 
   - name: vespamgr
     version: ~3.0.0
     repository: "@local"
-    condition: neartrric.installVespamgr
+    condition: nearrtric.installVespamgr
 
   - name: xapp-onboarder
     version: ~3.0.0
     repository: "@local"
-    condition: neartrric.installXappOnboarder
+    condition: nearrtric.installXappOnboarder

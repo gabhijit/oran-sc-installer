@@ -52,7 +52,7 @@ common:
 
 
 
-appmgr: 
+appmgr:
   imagePullPolicy: IfNotPresent
   image:
    # xAppmanager Docker image name and tag
@@ -63,7 +63,7 @@ appmgr:
    appmgr:
      registry: "nexus3.o-ran-sc.org:10002/o-ran-sc"
      name: ric-plt-appmgr
-     tag: 0.2.0
+     tag: 0.5.7
 
 
 
@@ -74,9 +74,9 @@ appmgr:
   #repoUserName: ""
   #repoPassword: ""
   #repoUrl: ""
-  
-  
-  # Service ports are now defined in 
+
+
+  # Service ports are now defined in
   # ric-common/Common-Template/helm/ric-common/templates/_ports.tpl file.
   # If need to change a service port, make the code change necessary, then
   # update the _ports.tpl file with the new port number.

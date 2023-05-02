@@ -20,7 +20,16 @@ kind: ConfigMap
 metadata:
   name: {{ include "common.configmapname.appmgr" . }}-bin
 data:
+  appmgr-tiller-secret-copier.sh: |-
+{{ .Files.Get "bin/_appmgr-tiller-secret-copier.sh.tpl" | indent 4 }}
+  svcacct-to-kubeconfig.sh: |
+{{ .Files.Get "bin/_svcacct-to-kubeconfig.sh.tpl" | indent 4 }}
+
+{{/*
+data:
   appmgr-tiller-secret-copier.sh: |
    {{-  include "appmgr/templates/bin/_appmgr-tiller-secret-copier.sh.tpl" . | indent 4 }}
   svcacct-to-kubeconfig.sh: |
    {{-  include "appmgr/templates/bin/_svcacct-to-kubeconfig.sh.tpl" . | indent 4 }}
+*/}}
+

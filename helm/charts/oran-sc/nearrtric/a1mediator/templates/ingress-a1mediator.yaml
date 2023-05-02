@@ -7,6 +7,9 @@ spec:
   - http:
       paths:
       - path: {{ include "common.kongpath.ric.a1mediator" . }}
+        pathType: Prefix
         backend:
-          serviceName: {{ include "common.servicename.a1mediator.http" . }}
-          servicePort: {{ include "common.serviceport.a1mediator.http" . }}
+          service:
+            name: {{ include "common.servicename.a1mediator.http" . }}
+            port:
+              number: {{ include "common.serviceport.a1mediator.http" . }}
