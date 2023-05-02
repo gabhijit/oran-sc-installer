@@ -1,0 +1,4 @@
+**/Chart.lock
+**/charts
+!helm/charts/
+**/dist
