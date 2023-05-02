@@ -1,0 +1,4 @@
+apiVersion: v2
+description: ONAP Secret Management Service
+name: aaf-sms
+version: 5.0.0

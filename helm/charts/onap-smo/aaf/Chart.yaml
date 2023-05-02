@@ -1,0 +1,39 @@
+apiVersion: v2
+description: ONAP Application Authorization Framework
+name: aaf
+version: 5.0.0
+
+dependencies:
+  - name: aux-common
+    version: ^3.0.0
+    repository: "@local"
+  - name: aaf-cass
+    version: ^5.0.0
+    repository: "file://components/aaf-cass"
+  - name: aaf-cm
+    version: ^5.0.0
+    repository: "file://components/aaf-cm"
+  - name: aaf-fs
+    version: ^5.0.0
+    repository: "file://components/aaf-fs"
+  - name: aaf-gui
+    version: ^5.0.0
+    repository: "file://components/aaf-gui"
+  - name: aaf-hello
+    version: ^5.0.0
+    repository: "file://components/aaf-hello"
+  - name: aaf-locate
+    version: ^5.0.0
+    repository: "file://components/aaf-locate"
+  - name: aaf-oauth
+    version: ^5.0.0
+    repository: "file://components/aaf-oauth"
+  - name: aaf-service
+    version: ^5.0.0
+    repository: "file://components/aaf-service"
+  - name: aaf-sms
+    version: ^5.0.0
+    repository: "file://components/aaf-sms"
+  - name: aaf-sshsm
+    version: ^5.0.0
+    repository: "file://components/aaf-sshsm"

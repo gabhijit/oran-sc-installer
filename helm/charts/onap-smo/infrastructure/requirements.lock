@@ -1,0 +1,21 @@
+dependencies:
+- name: ric-common
+  repository: http://localhost:6873/
+  version: 3.3.2
+- name: extsvcaux
+  repository: file://subcharts/extsvcaux
+  version: 0.2.0
+- name: docker-credential
+  repository: file://./subcharts/docker-credential
+  version: 1.0.0
+- name: kong
+  repository: file://./subcharts/kong
+  version: 0.36.6
+- name: certificate-manager
+  repository: file://./subcharts/certificate-manager
+  version: 0.1.0
+- name: danm-networks
+  repository: file://./subcharts/danm-networks
+  version: 1.0.0
+digest: sha256:c5571fdacc679098204e4b9ef7aa8ba2d0566a2db37cfebfe53e69770a6f953f
+generated: "2023-04-04T13:59:10.213025653+05:30"
