@@ -39,6 +39,9 @@ nearrtric:
 
 common:
   releasePrefix: r4
+  serviceport:
+    submgr:
+      http: 8088
 # If a local docker registry is used, please specify it using the following option
 #  localregistry: nexus3.o-ran-sc.org:10004
 
@@ -130,6 +133,7 @@ e2mgr:
       ranManipulationMessageChannel: RAN_MANIPULATION
 
 e2term:
+  loglevel: 4
   e2term:
     alpha:
       image:

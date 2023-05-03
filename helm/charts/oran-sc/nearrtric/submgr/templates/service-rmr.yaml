@@ -17,7 +17,7 @@
 #==================================================================================
 #
 #
-#   Abstract: Subscription Manager service manifest 
+#   Abstract: Subscription Manager service manifest
 #   Date:		28 May 2019
 #
 kind: Service
@@ -33,8 +33,7 @@ metadata:
 spec:
   selector:
     app: {{ include "common.namespace.platform" . }}-{{ include "common.name.submgr" . }}
-    release: {{ .Release.Name }}	
-  clusterIP: None
+    release: {{ .Release.Name }}
   ports:
   - name: rmrdata
     port: {{ include "common.serviceport.submgr.rmr.data" . }}
