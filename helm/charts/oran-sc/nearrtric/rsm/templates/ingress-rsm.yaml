@@ -22,6 +22,9 @@ spec:
   - http:
       paths:
       - path: {{ include "common.kongpath.ric.rsm" . }}
+        pathType: Prefix
         backend:
-          serviceName: {{ include "common.servicename.rsm.http" . }}
-          servicePort: {{ include "common.serviceport.rsm.http" . }}
+          service:
+            name: {{ include "common.servicename.rsm.http" . }}
+            port:
+              number: {{ include "common.serviceport.rsm.http" . }}
