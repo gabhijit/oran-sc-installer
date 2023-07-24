@@ -4,8 +4,7 @@ This directory contains charts required for installing a complete NonRTRIC SMO u
 
 # Architecture
 
-For the current architecture of the NonRT RIC platform, please refer to the ![architecture diagram](images/NonRTRicArchitecture.svg "Architecthre").
-
+Following diagram depicts the current architecture of the NonRT RIC platform. ![architecture diagram](images/NonRTRicArchitecture.svg "Architecthre").
 
 # Components
 
@@ -28,5 +27,3 @@ API End point - ves.{subdomain} - where {subdomain} will be an override value th
 ### Additional Notes
 
 1. The current VES collector builds with JDK 11 a rather old version of JDK.
-
-
