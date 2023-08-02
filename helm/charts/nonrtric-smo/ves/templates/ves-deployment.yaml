@@ -45,12 +45,12 @@ spec:
       volumes:
       - name: component-log
         emptyDir: {}
-      - name: ves-config-mount
+      - name: ves-config-mount-dmaap-cfg
         configMap:
-          name: {{ include "common.configmapname.ves" . }}
-      - name: ves-config-mount-properties
+          name: {{ include "ves.dmaap.config.cm.name" . }}
+      - name: ves-config-mount-collector-properties
         configMap:
-          name: {{ include "common.configmapname.ves" . }}-properties
+          name: {{ include "ves.collector.properties.cm.name" . }}
       imagePullSecrets:
       - name: onap-docker-registry-key
       containers:
@@ -68,10 +68,10 @@ spec:
         volumeMounts:
         - name: component-log
           mountPath: "/opt/app/VESCollector/logs/ecomp"
-        - name: ves-config-mount
-          mountPath: "/opt/app/VESCollector/etc/DmaapConfig.json"
-          subPath: DmaapConfig.json
-        - name: ves-config-mount-properties
+        - name: ves-config-mount-dmaap-cfg
+          mountPath: "/opt/app/VESCollector/etc/ves-dmaap-config.json"
+          subPath: ves-dmaap-config.json
+        - name: ves-config-mount-collector-properties
           mountPath: "/opt/app/VESCollector/etc/collector.properties"
           subPath: collector.properties
         readinessProbe:
