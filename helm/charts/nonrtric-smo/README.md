@@ -6,6 +6,23 @@ This directory contains charts required for installing a complete NonRTRIC SMO u
 
 Following diagram depicts the current architecture of the NonRT RIC platform. ![architecture diagram](images/NonRTRicArchitecture.svg "Architecthre").
 
+# Platform Components (Thirdparty)
+
+These are the components that are to be installed before the `nonrtric-platform` chart can be installed. These are typically thirdparty platform services that are used by different components. The components mentioned as prerequisites are to be installed first before actual platform deployment.
+
+
+## Strimzi Kafka Operator (Prerequisite)
+
+For example, the nonrtric-platform uses it's own kafka service. This service has a chart of it's own, but for the chart to work a custom resource needs to be created first. These resources are made available by the `strimzi-kafka-operator` chart.
+
+### Current Version
+
+The current version of `strimzi-kafka-operator` is `0.36.0`.
+
+### Install instructions
+$ helm repo add strimzi https://strimzi.io/charts
+$ helm install strimzi strimzi@strimzi-kafka-operator --version 0.36.0
+
 # Components
 
 ## VES Collector

@@ -14,26 +14,36 @@
 #   limitations under the License.                                             #
 ################################################################################
 
-apiVersion: v2
-description: >
-  Umbrella Platform Chart for the deployment of the NonRTRIC platform that
-  includes the SMO.
-name: nonrtric-platform
-version: 0.0.1
-
-dependencies:
-  - name: platform-common
-    version: 0.0.1
-    repository: "@local"
-
-  - name: kong
-    version: 2.25.0
-    repository: "@kong"
-
-  - name: ves
-    version: 0.0.1
-    repository: "@local"
-
-  - name: kafka
-    version: 0.0.1
-    repository: "@local"
+apiVersion: kafka.strimzi.io/v1beta2
+kind: Kafka
+metadata:
+  name: nonrtric-platform
+spec:
+  kafka:
+    version: 3.5.1
+    replicas: 1
+    listeners:
+      - name: plain
+        port: 9092
+        type: internal
+        tls: false
+      - name: tls
+        port: 9093
+        type: internal
+        tls: true
+    config:
+      offsets.topic.replication.factor: 1
+      transaction.state.log.replication.factor: 1
+      transaction.state.log.min.isr: 1
+      default.replication.factor: 1
+      min.insync.replicas: 1
+      inter.broker.protocol.version: "3.5"
+    storage:
+      type: ephemeral
+  zookeeper:
+    replicas: 3
+    storage:
+      type: ephemeral
+  entityOperator:
+    topicOperator: {}
+    userOperator: {}

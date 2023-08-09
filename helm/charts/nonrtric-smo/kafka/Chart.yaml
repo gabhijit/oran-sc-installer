@@ -15,25 +15,7 @@
 ################################################################################
 
 apiVersion: v2
-description: >
-  Umbrella Platform Chart for the deployment of the NonRTRIC platform that
-  includes the SMO.
-name: nonrtric-platform
+description: Chart for Kafka for the nonrtric platform
+name: kafka
 version: 0.0.1
 
-dependencies:
-  - name: platform-common
-    version: 0.0.1
-    repository: "@local"
-
-  - name: kong
-    version: 2.25.0
-    repository: "@kong"
-
-  - name: ves
-    version: 0.0.1
-    repository: "@local"
-
-  - name: kafka
-    version: 0.0.1
-    repository: "@local"
