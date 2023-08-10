@@ -1,4 +1,6 @@
 ################################################################################
+#   Copyright (c) 2019 AT&T Intellectual Property.                             #
+#   Copyright (c) 2019 Nokia.                                                  #
 #   Copyright (c) 2023 hyphenOs Software Labs.
 #                                                                              #
 #   Licensed under the Apache License, Version 2.0 (the "License");            #
@@ -15,29 +17,11 @@
 ################################################################################
 
 apiVersion: v2
-description: >
-  Umbrella Platform Chart for the deployment of the NonRTRIC platform that
-  includes the SMO.
-name: nonrtric-platform
+description: Chart for ONAP DMAAP - Message Router
+name: dmaap-mr
 version: 0.0.1
 
 dependencies:
   - name: platform-common
-    version: 0.0.1
-    repository: "@local"
-
-  - name: kong
-    version: 2.25.0
-    repository: "@kong"
-
-  - name: ves
-    version: 0.0.1
-    repository: "@local"
-
-  - name: kafka
-    version: 0.0.1
-    repository: "@local"
-
-  - name: dmaap-mr
     version: 0.0.1
     repository: "@local"
