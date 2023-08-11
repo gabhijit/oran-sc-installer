@@ -26,10 +26,6 @@ dependencies:
     version: 0.0.1
     repository: "@local"
 
-  - name: kong
-    version: 2.25.0
-    repository: "@kong"
-
   - name: ves
     version: 0.0.1
     repository: "@local"
