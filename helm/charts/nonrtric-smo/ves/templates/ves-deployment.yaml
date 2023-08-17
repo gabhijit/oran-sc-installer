@@ -21,6 +21,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: {{ include "common.deploymentname.ves" . }}
+  namespace: {{ include "common.namespace.platform" . }}
   generation: 1
   labels:
     app: {{ include "common.namespace.aux" . }}-{{ include "common.name.ves" . }}

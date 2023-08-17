@@ -20,7 +20,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "common.fullname" . }}
-  namespace: {{ include "common.namespace.aux" . }}
+  namespace: {{ include "common.namespace.platform" . }}
   labels:
     app: {{ include "common.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
@@ -40,11 +40,10 @@ spec:
     spec:
       containers:
         - name: {{ include "common.name" . }}
-          image: "{{ .Values.onapRepository }}/{{ .Values.image }}"
+          image: "{{ .Values.image }}"
           imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
           ports:
           - containerPort: {{ .Values.service.externalPort }}
-          - containerPort: {{ .Values.service.externalPort2 }}
           {{- if eq .Values.liveness.enabled true }}
           livenessProbe:
             tcpSocket:
@@ -59,7 +58,7 @@ spec:
             periodSeconds: {{ .Values.readiness.periodSeconds }}
           env:
           - name: enableCadi
-            value: "false"
+            value: "true"
           volumeMounts:
           - mountPath: /etc/localtime
             name: localtime
@@ -83,4 +82,4 @@ spec:
           configMap:
             name: {{ include "common.fullname" . }}-logback-xml-configmap
       imagePullSecrets:
-      - name: "{{ include "common.namespace.aux" . }}-docker-registry-key"
+      - name: "{{ include "common.namespace.platform" . }}-docker-registry-key"

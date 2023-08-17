@@ -19,3 +19,7 @@ description: Chart for Kafka for the nonrtric platform
 name: kafka
 version: 0.0.1
 
+dependencies:
+  - name: platform-common
+    version: 0.0.1
+    repository: "@local"

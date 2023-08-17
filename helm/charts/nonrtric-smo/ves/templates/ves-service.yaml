@@ -1,6 +1,7 @@
 ################################################################################
 #   Copyright (c) 2019 AT&T Intellectual Property.                             #
 #   Copyright (c) 2019 Nokia.                                                  #
+#   Copyright (c) 2023 hyphenOs Software Labs.
 #                                                                              #
 #   Licensed under the Apache License, Version 2.0 (the "License");            #
 #   you may not use this file except in compliance with the License.           #
@@ -20,8 +21,9 @@ kind: Service
 apiVersion: v1
 metadata:
   name: {{ include "common.servicename.ves.http" . }}
+  namespace: {{ include "common.namespace.platform" . }}
   labels:
-    app: {{ include "common.namespace.aux" . }}-{{ include "common.name.ves" . }}
+    app: {{ include "common.namespace.platform" . }}-{{ include "common.name.ves" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -36,6 +38,6 @@ spec:
     port: {{ include "common.serviceport.ves.https" . }}
     targetPort: {{ include "common.serviceport.ves.https" . }}
   selector:
-    app: {{ include "common.namespace.aux" . }}-{{ include "common.name.ves" . }}
+    app: {{ include "common.namespace.platform" . }}-{{ include "common.name.ves" . }}
     release: {{ .Release.Name }}
   type: ClusterIP

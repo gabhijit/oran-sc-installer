@@ -18,9 +18,10 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
   name: nonrtric-platform
+  namespace: {{ include "common.namespace.platform" . }}
 spec:
   kafka:
-    version: 3.5.1
+    version: 3.5.0
     replicas: 1
     listeners:
       - name: plain

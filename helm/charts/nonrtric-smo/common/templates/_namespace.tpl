@@ -14,6 +14,7 @@
 #   limitations under the License.                                             #
 ################################################################################
 
+# Either value from common.namespace.platform or default 'nonrtric-platform'
 {{- define "common.namespace.platform" -}}
   {{- $keylist := list "common" "namespace" "platform" -}}
   {{- $ctx := dict "ctx" $.Values "keylist" $keylist -}}
@@ -21,10 +22,14 @@
   {{- if not (empty $namespace) -}}
     {{- $namespace -}}
   {{- else -}}
-    {{- printf "ricplt" -}}
+    {{- .Release.Namespace }}
   {{- end -}}
 {{- end -}}
 
+# WARNING: This is deprecated do not use it. We are deploying everything in the
+# same namespace. This is kept right now for the cases where it's just too much
+# of an effort right now to actually not use it from any of the charts from
+# ORAN-SC or ONAP
 {{- define "common.namespace.infra" -}}
   {{- $keylist := list "common" "namespace" "infra" -}}
   {{- $ctx := dict "ctx" $.Values "keylist" $keylist -}}
@@ -36,6 +41,11 @@
   {{- end -}}
 {{- end -}}
 
+# WARNING: # This may be deprecated do not use it. Either the 'Apps' can come
+# from the same namespace as that of the platform. (For example Apps that are
+# built-in with platform) or The Apps may be running completely externally
+# (anywhere on the Internet and will avail platform services through well
+# defined API end points).
 {{- define "common.namespace.xapp" -}}
   {{- $keylist := list "common" "namespace" "xapp" -}}
   {{- $ctx := dict "ctx" $.Values "keylist" $keylist -}}
@@ -48,6 +58,10 @@
 {{- end -}}
 
 
+# WARNING: This is deprecated do not use it. We are deploying everything in the
+# same namespace. This is kept right now for the cases where it's just too much
+# of an effort right now to actually not use it from any of the charts from
+# ORAN-SC or ONAP
 {{- define "common.namespace.aux" -}}
   {{- $keylist := list "common" "namespace" "aux" -}}
   {{- $ctx := dict "ctx" $.Values "keylist" $keylist -}}

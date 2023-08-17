@@ -26,15 +26,16 @@ global:
 # Application configuration defaults.
 #################################################################
 # application image
-onapRepository: nexus3.onap.org:10001
-image: onap/dmaap/dmaap-mr:1.4.4
+onapRepository: nexus3.onap.org:10003
+image: onap/dmaap/dmaap-mr:1.4.5-SNAPSHOT-latest
 pullPolicy: Always
 
 kafka:
-  name: message-router-kafka
+  name: nonrtric-platform-kafka-bootstrap
+
   port: 9092
 zookeeper:
-  name: message-router-zookeeper
+  name: nonrtric-platform-zookeeper-client
   port: 2181
 
 # flag to enable debugging - application support required
@@ -63,13 +64,14 @@ readiness:
   periodSeconds: 10
 
 service:
-  type: NodePort
+  type: ClusterIP
   name: message-router
-  portName: message-router
   externalPort: 3904
-  nodePort: 27
-  externalPort2: 3905
-  nodePort2: 26
+  internalPort: 3904
+  ports:
+    - name: api
+      port: 3904
+      port_protocol: http
 
 ingress:
   enabled: false

@@ -14,9 +14,20 @@
 #   limitations under the License.                                             #
 ################################################################################
 
-
-
-
+################################################################################
+# 'locate': This function is used to locate 'keys' from a json or a yaml file
+# For Example consider the following `test.yaml` file
+# Used for testing
+# ```yaml
+# common:
+#   namespace:
+#    aux: "nonrtric-aux"
+#    platform: "nonrtric-platform"
+# ```
+# locate "common.namespace.aux" would yield - "nonrtric-aux"
+# This can come from the override file specified during building templates or
+# It can be a `section` in `values.yaml` for a Chart.
+###############################################################################
 
 {{- define "locate" -}}
   {{- $ctx := .ctx }}
