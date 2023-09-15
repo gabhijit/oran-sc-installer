@@ -29,6 +29,7 @@ nearrtric:
   installRtmgr: true
   installVespamgr: true
   installXappOnboarder: true
+  installInfluxDB: true
 
   volume1:
     size: 1Gi

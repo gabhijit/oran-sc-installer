@@ -28,7 +28,7 @@ nearrtric:
   installE2Mgr: true
   installE2Term: true
   installJaegerAdapter: false
-  installRsm: true
+  installRsm: false
   installSubmgr: true
   installRtmgr: true
   installVespamgr: false
@@ -83,7 +83,7 @@ a1mediator:
     image:
       registry: "nexus3.o-ran-sc.org:10002/o-ran-sc"
       name: ric-plt-a1
-      tag: 3.0.1
+      tag: 3.1.1
     rmr_timeout_config:
       a1_rcv_retry_times: 20
       ins_del_no_resp_ttl: 5
@@ -133,7 +133,7 @@ e2mgr:
       ranManipulationMessageChannel: RAN_MANIPULATION
 
 e2term:
-  loglevel: 2
+  loglevel: 3
   e2term:
     alpha:
       image:
@@ -192,8 +192,11 @@ alarmmanager:
     name: ric-plt-alarmmanager
     tag: 0.5.14
 
-influxdb:
+influxdb2:
   image:
     registry: "influxdb"
     name: influxdb
     tag: "2.2.0-alpine"
+  fullnameOverride: "ricplt-influxdb"
+  service:
+    port: 8086
