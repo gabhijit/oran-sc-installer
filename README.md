@@ -1,4 +1,11 @@
 # Introduction
 
-This is an installer for ORAN SC RIC Platforms and other ONAP components to get a basic working installation up and running. The goal of this project is not to be just a bunch of scripts that perform the actual work, but also explain what is happening under the hood, so that it's easier to debug issues one may face during the installation. Eventually the goal is to upstream this documentation to ORAN-SC.
+One of the challenges working with ORAN-SC software components is bringing up the NearRT RIC and Non RT RIC platforms up and running on a developer machine. The goal of this project is to bridge that gap. This pshould help the developers of XApps and RApps. The eventual goal of this project is to make a fully functional platform that can be deployed by the service providers.
 
+Also, For Non RT RIC, the goal is to minimize dependencies on the ONAP and bring up those components individually. Bringing up whole of ONAP as SMO for the NonRT RIC is a bit of an overkill and we are trying to mitigate that platform.
+
+This project will leverage the ORAN-SC software components for the platform.
+
+# Status
+
+Currently a single helm chart to install Near RT RIC platform is available. This project is a WIP and a substantial portion of it will be upstreamed to ORAN-SC.
