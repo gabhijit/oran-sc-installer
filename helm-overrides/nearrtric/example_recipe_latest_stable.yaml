@@ -2,6 +2,7 @@
 #   Copyright (c) 2019 AT&T Intellectual Property.                             #
 #   Copyright (c) 2021 HCL Technologies Limited.                               #
 #   Copyright (c) 2022 Samsung Electronics Co., Ltd.                           #
+#   Copyright (c) 2023 Abhijit Gadgil                                          #
 #                                                                              #
 #   Licensed under the Apache License, Version 2.0 (the "License");            #
 #   you may not use this file except in compliance with the License.           #
@@ -20,7 +21,6 @@
 # Near RT RIC Controls
 #--------------------------------------------------------------------------
 nearrtric:
-  installRms: false
   installAppMgr: true
   installA1Mediator: true
   installAlarmManager: false
@@ -28,7 +28,6 @@ nearrtric:
   installE2Mgr: true
   installE2Term: true
   installJaegerAdapter: false
-  installRsm: false
   installSubmgr: true
   installRtmgr: true
   installVespamgr: false
@@ -133,7 +132,7 @@ e2mgr:
       ranManipulationMessageChannel: RAN_MANIPULATION
 
 e2term:
-  loglevel: 3
+  loglevel: 4
   e2term:
     alpha:
       image:

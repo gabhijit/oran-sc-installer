@@ -55,8 +55,6 @@ data:
     rte|10070|{{ include "common.servicename.e2mgr.rmr" $topCtx }}.{{ include "common.namespace.platform" $topCtx }}:{{ include "common.serviceport.e2mgr.rmr.data" $topCtx }}
     rte|10071|{{ include "common.servicename.e2mgr.rmr" $topCtx }}.{{ include "common.namespace.platform" $topCtx }}:{{ include "common.serviceport.e2mgr.rmr.data" $topCtx }}
     rte|10080|{{ include "common.servicename.e2mgr.rmr" $topCtx }}.{{ include "common.namespace.platform" $topCtx }}:{{ include "common.serviceport.e2mgr.rmr.data" $topCtx }}
-    rte|10091|{{ include "common.servicename.rsm.rmr" $topCtx }}.{{ include "common.namespace.platform" $topCtx }}:{{ include "common.serviceport.rsm.rmr.data" $topCtx }}
-    rte|10092|{{ include "common.servicename.rsm.rmr" $topCtx }}.{{ include "common.namespace.platform" $topCtx }}:{{ include "common.serviceport.rsm.rmr.data" $topCtx }}
     rte|10360|
 {{- $frist := true -}}
 {{- range keys .Values.e2term -}}

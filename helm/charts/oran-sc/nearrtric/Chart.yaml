@@ -5,7 +5,7 @@ appVersion: test
 description: NearRT RAN Intelligent Controller from ORAN-SC
 home: https://www.o-ran.org/
 sources:
-- https://gerrit.o-ran-sc.org/r/#/admin/projects/
+  - https://gerrit.o-ran-sc.org/r/#/admin/projects/
 kubeVersion: " >= 1.22"
 
 dependencies:
@@ -48,11 +48,6 @@ dependencies:
     version: ~3.0.0
     repository: "@local"
     condition: nearrtric.installJaegerAdapter
-
-  - name: rsm
-    version: ~3.0.0
-    repository: "@local"
-    condition: nearrtric.installRsm
 
   - name: submgr
     version: ~3.0.0

@@ -29,9 +29,6 @@ data:
     rte|1090|{{ include "common.servicename.e2term.rmr" .     }}.{{ include "common.namespace.platform" . }}:{{ include "common.serviceport.e2term.rmr.data" . }}
     rte|1100|{{ include "common.servicename.e2term.rmr" .     }}.{{ include "common.namespace.platform" . }}:{{ include "common.serviceport.e2term.rmr.data" . }}
     rte|1101|{{ include "common.servicename.e2term.rmr" .     }}.{{ include "common.namespace.platform" . }}:{{ include "common.serviceport.e2term.rmr.data" . }}
-    rte|1200|{{ include "common.servicename.rsm.rmr" .     }}.{{ include "common.namespace.platform" . }}:{{ include "common.serviceport.rsm.rmr.data" . }}
-    rte|1210|{{ include "common.servicename.rsm.rmr" .     }}.{{ include "common.namespace.platform" . }}:{{ include "common.serviceport.rsm.rmr.data" . }}
-    rte|1220|{{ include "common.servicename.rsm.rmr" .     }}.{{ include "common.namespace.platform" . }}:{{ include "common.serviceport.rsm.rmr.data" . }}
     rte|10020|{{ include "common.servicename.e2mgr.rmr" .      }}.{{ include "common.namespace.platform" . }}:{{ include "common.serviceport.e2mgr.rmr.data" . }}
     rte|10060|{{ include "common.servicename.e2term.rmr" .     }}.{{ include "common.namespace.platform" . }}:{{ include "common.serviceport.e2term.rmr.data" . }}
     rte|10061|{{ include "common.servicename.e2mgr.rmr" .      }}.{{ include "common.namespace.platform" . }}:{{ include "common.serviceport.e2mgr.rmr.data" . }}
@@ -62,8 +59,8 @@ data:
       {{- if hasKey .Values.e2mgr "logLevel" }}
       logLevel: {{ .Values.e2mgr.logLevel }}
       {{- else }}
-      logLevel:  "info" 
-      {{- end }}     
+      logLevel:  "info"
+      {{- end }}
     http:
       {{- if hasKey .Values.e2mgr "httpPort" }}
       port: {{ .Values.e2mgr.httpPort }}
@@ -79,7 +76,7 @@ data:
       {{- if hasKey .Values.e2mgr "maxMsgSize" }}
       maxMsgSize: {{ .Values.e2mgr.maxMsgSize }}
       {{- else }}
-      maxMsgSize: 65536 
+      maxMsgSize: 65536
       {{- end }}
 
     routingManager:
@@ -93,29 +90,29 @@ data:
     notificationResponseBuffer: {{ .Values.e2mgr.notificationResponseBuffer }}
     {{- else }}
     notificationResponseBuffer: 100
-    {{- end }} 
+    {{- end }}
 
     {{- if hasKey .Values.e2mgr "bigRedButtonTimeoutSec" }}
     bigRedButtonTimeoutSec: {{ .Values.e2mgr.bigRedButtonTimeoutSec }}
     {{- else }}
     bigRedButtonTimeoutSec: 5
-    {{- end }}   
+    {{- end }}
 
     {{- if hasKey .Values.e2mgr "maxConnectionAttempts" }}
     maxConnectionAttempts: {{ .Values.e2mgr.maxConnectionAttempts }}
-    {{- else }} 
+    {{- else }}
     maxConnectionAttempts: 3
-    {{- end }}       
-    
+    {{- end }}
+
     {{- if hasKey .Values.e2mgr "maxRnibConnectionAttempts" }}
     maxRnibConnectionAttempts: {{ .Values.e2mgr.maxRnibConnectionAttempts }}
-    {{- else }} 
+    {{- else }}
     maxRnibConnectionAttempts: 3
-    {{- end }}   
+    {{- end }}
 
     {{- if hasKey .Values.e2mgr "rnibRetryIntervalMs" }}
     rnibRetryIntervalMs: {{ .Values.e2mgr.rnibRetryIntervalMs }}
-    {{- else }} 
+    {{- else }}
     rnibRetryIntervalMs: 10
     {{- end }}
 
@@ -147,7 +144,7 @@ data:
       {{- else }}
       mnc: "411"
       {{- end }}
-      
+
     rnibWriter:
       {{- if hasKey .Values.e2mgr "stateChangeMessageChannel" }}
       stateChangeMessageChannel: {{ .Values.e2mgr.stateChangeMessageChannel }}
@@ -159,5 +156,5 @@ data:
       {{- else }}
       ranManipulationMessageChannel: "RAN_MANIPULATION"
       {{- end }}
-      
+
 ---

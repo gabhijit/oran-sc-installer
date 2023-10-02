@@ -5,4 +5,4 @@ This is a common platform chart. This char will be used by both NonRT-RIC and Ne
 | file | repo | path |
 | --- | --- | --- |
 | `_ingress.tpl` | `it/dep` | `aux-common/templates/_ingress.tpl` |
-| `_ves.tpl` | `it/de[` | `ric-common/templates/_ves.tpl` |
+| `_ves.tpl` | `it/dep` | `ric-common/templates/_ves.tpl` |

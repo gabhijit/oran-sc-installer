@@ -24,7 +24,6 @@ nearrtric:
   installE2Mgr: true
   installE2Term: true
   installJaegerAdapter: true
-  installRsm: true
   installSubmgr: true
   installRtmgr: true
   installVespamgr: true

@@ -33,7 +33,7 @@ $ wget https://github.com/chartmuseum/helm-push/releases/download/v0.10.3/helm-p
 
 # Following lines to export current (default) $HELM_* variables
 $ set -a
-$ eval (helm env)
+$ eval $(helm env)
 $ set +a
 $ tar -C $HELM_PLUGINS -xvzpf helm-push_0.10.3_linux_amd64.tar.gz
 
