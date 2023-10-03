@@ -24,7 +24,7 @@ nonrtric:
   installInformationservice: true
   installRappcatalogueservice: true
   installNonrtricgateway: true
-  installORUApp: true
+  installORUApp: false
   installODUSMOApp: true
   installODUICSApp: true
   installTopology: true

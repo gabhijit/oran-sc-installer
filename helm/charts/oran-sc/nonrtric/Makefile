@@ -15,7 +15,7 @@
 # limitations under the License.
 
 PARENT_CHART := nonrtric
-COMMON_CHARTS_DIR := nonrtric-common aux-common ric-common
+COMMON_CHARTS := nonrtric-common ric-common
 # FIXME OOM-765
 ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 OUTPUT_DIR := $(ROOT_DIR)/dist
@@ -43,13 +43,13 @@ endif
 
 #SUBMODS := robot
 #EXCLUDES := config oneclick readiness test dist helm $(PARENT_CHART) dcae $(SUBMODS)
-EXCLUDES := config oneclick readiness test dist helm $(PARENT_CHART)
+EXCLUDES := config oneclick readiness test dist helm oru-app $(PARENT_CHART)
 HELM_CHARTS := $(filter-out $(EXCLUDES), $(sort $(patsubst %/.,%,$(wildcard */.)))) $(PARENT_CHART)
 HELM_CHARTS_CLEAN := $(sort $(patsubst %,clean-%, $(HELM_CHARTS)))
 
-.PHONY: $(EXCLUDES)  $(HELM_CHARTS) check-for-staging-images helm-repo-update
+.PHONY: $(EXCLUDES)  $(HELM_CHARTS) helm-repo-update
 
-all: print_helm_bin $(HELM_CHARTS)
+all: print_helm_bin $(COMMON_CHARTS) helm-repo-update $(HELM_CHARTS)
 
 $(HELM_CHARTS): | $(OUTPUT_DIR)
 	@echo "\n[$@]"
@@ -67,8 +67,8 @@ make-%:
 	@if [ -f $*/Makefile ]; then make -C $*; fi
 
 dep-%: make-%
-	@echo $(HELM_DIR) dep up $*
-	@if [ -f $*/Chart.yaml ]; then $(HELM_BIN) dep up $*; fi
+	@echo $(HELM_DIR) dep up --skip-refresh $*
+	@if [ -f $*/Chart.yaml ]; then $(HELM_BIN) dep up --skip-refresh $*; fi
 
 lint-%: dep-%
 	@if [ -f $*/Chart.yaml ]; then $(HELM_LINT_CMD) $*; fi
@@ -93,24 +93,6 @@ distclean: clean
 # publish helm plugins via distrubtion directory
 plugins:
 	@cp -R helm $(PACKAGE_DIR)/
-
-# start up a local helm repo to serve up helm chart packages
-# WARNING: Only helm < v3 supported
-repo:
-	@mkdir -p $(PACKAGE_DIR)
-	@$(HELM_BIN) serve --repo-path $(PACKAGE_DIR) &
-	@sleep 3
-	@$(HELM_BIN) repo index $(PACKAGE_DIR)
-	@$(HELM_BIN) repo add local http://127.0.0.1:8879
-
-# stop local helm repo
-# WARNING: Only helm < v3 supported
-repo-stop:
-	@pkill $(HELM_BIN)
-	@$(HELM_BIN) repo remove local
-
-check-for-staging-images:
-	$(ROOT_DIR)/contrib/tools/check-for-staging-images.sh
 
 helm-repo-update:
 ifeq "$(findstring v3,$(HELM_VER))" "v3"
