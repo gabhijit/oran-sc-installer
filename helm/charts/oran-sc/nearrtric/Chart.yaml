@@ -1,63 +1,76 @@
+################################################################################
+#   Copyright (c) 2023 Abhijit Gadgil.
+#                                                                              #
+#   Licensed under the Apache License, Version 2.0 (the "License");            #
+#   you may not use this file except in compliance with the License.           #
+#   You may obtain a copy of the License at                                    #
+#                                                                              #
+#       http://www.apache.org/licenses/LICENSE-2.0                             #
+#                                                                              #
+#   Unless required by applicable law or agreed to in writing, software        #
+#   distributed under the License is distributed on an "AS IS" BASIS,          #
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   #
+#   See the License for the specific language governing permissions and        #
+#   limitations under the License.                                             #
+################################################################################
+
 apiVersion: v2
 name: nearrtric
 version: 1.0.0
-appVersion: test
-description: NearRT RAN Intelligent Controller from ORAN-SC
-home: https://www.o-ran.org/
+description: Umbrella Helm Chart for NearRT RAN Intelligent Controller from O-RAN SC.
+home: https://wiki.o-ran-sc.org/
 sources:
   - https://gerrit.o-ran-sc.org/r/#/admin/projects/
 kubeVersion: " >= 1.22"
 
 dependencies:
-  - name: a1mediator
-    version: ~3.0.0
-    repository: "@local"
-    condition: nearrtric.installA1Mediator
-
-  - name: alarmmanager
-    version: ~5.0.0
-    repository: "@local"
-    condition: nearrtric.installAlarmManager
-
+  # Required components
   - name: appmgr
-    version: ~3.0.0
+    version: ~1.x
     repository: "@local"
-    condition: nearrtric.installAppMgr
 
   - name: dbaas
-    version: ~2.0.0
+    version: ~1.x
     repository: "@local"
-    condition: nearrtric.installDbaas
 
   - name: e2mgr
-    version: ~3.0.0
+    version: ~1.x
     repository: "@local"
-    condition: nearrtric.installE2Mgr
 
   - name: e2term
-    version: ^3.0.0
+    version: ~1.x
     repository: "@local"
-    condition: nearrtric.installE2Term
 
+  - name: submgr
+    version: ~1.x
+    repository: "@local"
+
+  - name: rtmgr
+    version: ~1.x
+    repository: "@local"
+
+  # Optional Components.
+  # Third Party 'influxdb2' component, required by kpimon-go App.
+  # It may be required by other Apps.
   - name: influxdb2
     version: ~2.1.0
     repository: "@influxdata"
     condition: nearrtric.installInfluxDB
 
+  - name: a1mediator
+    version: ~1.x
+    repository: "@local"
+    condition: nearrtric.installA1Mediator
+
+  - name: alarmmanager
+    version: ~1.x
+    repository: "@local"
+    condition: nearrtric.installAlarmManager
+
   - name: jaegeradapter
     version: ~3.0.0
     repository: "@local"
     condition: nearrtric.installJaegerAdapter
-
-  - name: submgr
-    version: ~3.0.0
-    repository: "@local"
-    condition: nearrtric.installSubmgr
-
-  - name: rtmgr
-    version: ~3.0.0
-    repository: "@local"
-    condition: nearrtric.installRtmgr
 
   - name: vespamgr
     version: ~3.0.0

@@ -1,6 +1,7 @@
 ################################################################################
 #   Copyright (c) 2020 AT&T Intellectual Property.                             #
 #   Copyright (c) 2020 Nokia.                                                  #
+#   Copyright (c) 2023 Abhijit Gadgil.
 #                                                                              #
 #   Licensed under the Apache License, Version 2.0 (the "License");            #
 #   you may not use this file except in compliance with the License.           #
@@ -16,10 +17,12 @@
 ################################################################################
 
 apiVersion: v2
-appVersion: "1.0"
-description: DBaaS service backend helm charts
+description: DBaaS Service based on Redis for the Near RT RIC Platform.
 name: dbaas
-version: 2.0.0
+sources:
+  - https://gerrit.o-ran-sc.org/r/admin/repos/ric-plt/dbaas,general
+version: 1.0.0
+kubeVersion: " >= 1.22"
 
 dependencies:
   - name: ric-common

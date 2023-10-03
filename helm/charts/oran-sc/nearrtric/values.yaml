@@ -1,5 +1,6 @@
 ################################################################################
 #   Copyright (c) 2020 Nordix Foundation.                                      #
+#   Copyright (c) 2023 Abhijit Gadgil.
 #                                                                              #
 #   Licensed under the Apache License, Version 2.0 (the "License");            #
 #   you may not use this file except in compliance with the License.           #
@@ -15,20 +16,17 @@
 ################################################################################
 
 nearrtric:
+
   persistence:
     mountPath: /dockerdata-nfs
-  installA1Mediator: true
-  installAlarmManager: true
-  installAppMgr: true
-  installDbaas: true
-  installE2Mgr: true
-  installE2Term: true
-  installJaegerAdapter: true
-  installSubmgr: true
-  installRtmgr: true
-  installVespamgr: true
-  installXappOnboarder: true
-  installInfluxDB: true
+
+  # TODO: Document when these optional components are enabled.
+  installA1Mediator: false
+  installInfluxDB: false
+  installAlarmManager: false
+  installJaegerAdapter: false
+  installVespamgr: false
+  installXappOnboarder: false
 
   volume1:
     size: 1Gi
@@ -45,5 +43,6 @@ kong:
     installCRDs: false
   admin:
     enabled: true
+
 cert-wrapper:
   enabled: true

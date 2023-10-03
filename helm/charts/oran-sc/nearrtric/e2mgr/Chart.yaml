@@ -1,6 +1,7 @@
 ################################################################################
 #   Copyright (c) 2019 AT&T Intellectual Property.                             #
 #   Copyright (c) 2019 Nokia.                                                  #
+#   Copyright (c) Abhijit Gadgil.
 #                                                                              #
 #   Licensed under the Apache License, Version 2.0 (the "License");            #
 #   you may not use this file except in compliance with the License.           #
@@ -16,10 +17,11 @@
 ################################################################################
 
 apiVersion: v2
-appVersion: "1.0"
-description: Oran e2mgr Helm charts
+description: E2Manager Helm Chart for the NearRT RIC Platform.
 name: e2mgr
-version: 3.0.0
+sources:
+  - https://gerrit.o-ran-sc.org/r/admin/repos/ric-plt/e2mgr,general
+version: 1.0.0
 kubeVersion: ">= 1.22 "
 
 dependencies:
