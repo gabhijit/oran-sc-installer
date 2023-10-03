@@ -52,11 +52,6 @@ dependencies:
   # Optional Components.
   # Third Party 'influxdb2' component, required by kpimon-go App.
   # It may be required by other Apps.
-  - name: influxdb2
-    version: ~2.1.0
-    repository: "@influxdata"
-    condition: nearrtric.installInfluxDB
-
   - name: a1mediator
     version: ~1.x
     repository: "@local"
@@ -67,10 +62,20 @@ dependencies:
     repository: "@local"
     condition: nearrtric.installAlarmManager
 
+  - name: influxdb2
+    version: ~2.1.0
+    repository: "@influxdata"
+    condition: nearrtric.installInfluxDB
+
   - name: jaegeradapter
     version: ~3.0.0
     repository: "@local"
     condition: nearrtric.installJaegerAdapter
+
+  - name: o1mediator
+    version: ~3.0.0
+    repository: "@local"
+    condition: nearrtric.installO1Mediator
 
   - name: vespamgr
     version: ~3.0.0

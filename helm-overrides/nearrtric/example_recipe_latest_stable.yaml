@@ -25,6 +25,7 @@ nearrtric:
   installAlarmManager: false
   installInfluxDB: true
   installJaegerAdapter: false
+  installO1Mediator: false
   installVespamgr: false
   installXappOnboarder: false
 #-------------------------------------------------------------------------
