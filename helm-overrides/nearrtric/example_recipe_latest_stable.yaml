@@ -21,15 +21,10 @@
 # Near RT RIC Controls
 #--------------------------------------------------------------------------
 nearrtric:
-  installAppMgr: true
   installA1Mediator: true
   installAlarmManager: false
-  installDbaas: true
-  installE2Mgr: true
-  installE2Term: true
+  installInfluxDB: true
   installJaegerAdapter: false
-  installSubmgr: true
-  installRtmgr: true
   installVespamgr: false
   installXappOnboarder: false
 #-------------------------------------------------------------------------

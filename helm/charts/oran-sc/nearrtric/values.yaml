@@ -22,8 +22,8 @@ nearrtric:
 
   # TODO: Document when these optional components are enabled.
   installA1Mediator: false
-  installInfluxDB: false
   installAlarmManager: false
+  installInfluxDB: false
   installJaegerAdapter: false
   installVespamgr: false
   installXappOnboarder: false
