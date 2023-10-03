@@ -1,6 +1,6 @@
 # Copyright © 2017 Amdocs, Bell Canada
 #
-# Copyright (c) 2023 hypheOs Software Labs
+# Copyright (c) 2023 Abhijit Gadgil
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ endif
 
 #SUBMODS := robot
 #EXCLUDES := config oneclick readiness test dist helm $(PARENT_CHART) dcae $(SUBMODS)
-EXCLUDES := config oneclick readiness test dist helm infrastructure influxdb 3rdparty redis-cluster $(PARENT_CHART)
+EXCLUDES := config test dist helm $(PARENT_CHART)
 HELM_CHARTS := $(filter-out $(EXCLUDES), $(sort $(patsubst %/.,%,$(wildcard */.)))) $(PARENT_CHART)
 HELM_CHARTS_CLEAN := $(sort $(patsubst %,clean-%, $(HELM_CHARTS)))
 

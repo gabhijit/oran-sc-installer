@@ -20,14 +20,18 @@ nearrtric:
   persistence:
     mountPath: /dockerdata-nfs
 
+  # Optional Components
   # TODO: Document when these optional components are enabled.
   installA1Mediator: false
   installAlarmManager: false
-  installInfluxDB: false
   installJaegerAdapter: false
   installO1Mediator: false
   installVespamgr: false
   installXappOnboarder: false
+
+  # Third Party Components
+  # TODO: Add documentation when these third party components are enabled.
+  installInfluxDB: false
 
   volume1:
     size: 1Gi
@@ -38,12 +42,3 @@ nearrtric:
   volume3:
     size: 1Gi
     storageClassName: volume3
-
-kong:
-  ingressController:
-    installCRDs: false
-  admin:
-    enabled: true
-
-cert-wrapper:
-  enabled: true

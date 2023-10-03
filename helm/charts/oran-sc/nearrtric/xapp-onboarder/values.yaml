@@ -22,7 +22,7 @@ xapponboarder:
   http_retry: "3"
   helm_version: "2.12.3"
   allow_redeploy: "True"
-  
+
   replicaCount: 1
   imagePullPolicy: IfNotPresent
   image:

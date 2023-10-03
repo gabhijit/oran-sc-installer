@@ -195,3 +195,19 @@ influxdb2:
   fullnameOverride: "ricplt-influxdb"
   service:
     port: 8086
+
+xapp-onboarder:
+  xapponboarder:
+    image:
+      xapponboarder:
+        registry: "nexus3.o-ran-sc.org:10004/o-ran-sc"
+        name: xapp-onboarder
+        tag: 1.0.8
+
+o1mediator:
+  o1mediator:
+    image:
+      name: ric-plt-o1
+      tag: 0.6.2
+      registry: "nexus3.o-ran-sc.org:10002/o-ran-sc"
+

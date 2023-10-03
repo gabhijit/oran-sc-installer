@@ -18,7 +18,7 @@ apiVersion: v2
 name: nearrtric
 version: 1.0.0
 description: Umbrella Helm Chart for NearRT RAN Intelligent Controller from O-RAN SC.
-home: https://wiki.o-ran-sc.org/
+home: https://wiki.o-ran-sc.org/pages/viewpage.action?pageId=1179659
 sources:
   - https://gerrit.o-ran-sc.org/r/#/admin/projects/
 kubeVersion: " >= 1.22"
@@ -50,8 +50,6 @@ dependencies:
     repository: "@local"
 
   # Optional Components.
-  # Third Party 'influxdb2' component, required by kpimon-go App.
-  # It may be required by other Apps.
   - name: a1mediator
     version: ~1.x
     repository: "@local"
@@ -62,27 +60,30 @@ dependencies:
     repository: "@local"
     condition: nearrtric.installAlarmManager
 
+  # TODO: Maybe a third party component?
+  - name: jaegeradapter
+    version: ~1.x
+    repository: "@local"
+    condition: nearrtric.installJaegerAdapter
+
+  - name: o1mediator
+    version: ~1.x
+    repository: "@local"
+    condition: nearrtric.installO1Mediator
+
+  - name: vespamgr
+    version: ~1.x
+    repository: "@local"
+    condition: nearrtric.installVespamgr
+
+  - name: xapp-onboarder
+    version: ~1.x
+    repository: "@local"
+    condition: nearrtric.installXappOnboarder
+
+  # Third Party Components
   - name: influxdb2
     version: ~2.1.0
     repository: "@influxdata"
     condition: nearrtric.installInfluxDB
 
-  - name: jaegeradapter
-    version: ~3.0.0
-    repository: "@local"
-    condition: nearrtric.installJaegerAdapter
-
-  - name: o1mediator
-    version: ~3.0.0
-    repository: "@local"
-    condition: nearrtric.installO1Mediator
-
-  - name: vespamgr
-    version: ~3.0.0
-    repository: "@local"
-    condition: nearrtric.installVespamgr
-
-  - name: xapp-onboarder
-    version: ~3.0.0
-    repository: "@local"
-    condition: nearrtric.installXappOnboarder

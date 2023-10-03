@@ -1,6 +1,7 @@
 ################################################################################
 #   Copyright (c) 2019 AT&T Intellectual Property.                             #
 #   Copyright (c) 2019 Nokia.                                                  #
+#   Copyright (c) Abhijit Gadgil.
 #                                                                              #
 #   Licensed under the Apache License, Version 2.0 (the "License");            #
 #   you may not use this file except in compliance with the License.           #
@@ -16,10 +17,12 @@
 ################################################################################
 
 apiVersion: v2
-appVersion: "1.0"
-description: Helm Chart for xapp_onboarder
+description: Helm Chart for XApp Onboarder for the Near RT RIC Platform.
 name: xapp-onboarder
-version: 3.0.0
+sources:
+  - https://gerrit.o-ran-sc.org/r/gitweb?p=ric-plt/appmgr.git;a=tree;f=xapp_orchestrater/dev
+version: 1.0.0
+kubeVersion: " >= 1.22"
 
 dependencies:
   - name: ric-common
