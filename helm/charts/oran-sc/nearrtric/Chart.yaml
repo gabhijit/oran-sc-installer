@@ -16,7 +16,7 @@
 
 apiVersion: v2
 name: nearrtric
-version: 1.0.0
+version: 0.1.0
 description: Umbrella Helm Chart for NearRT RAN Intelligent Controller from O-RAN SC.
 home: https://wiki.o-ran-sc.org/pages/viewpage.action?pageId=1179659
 sources:
@@ -26,58 +26,58 @@ kubeVersion: " >= 1.22"
 dependencies:
   # Required components
   - name: appmgr
-    version: ~1.x
+    version: ~0.x
     repository: "@local"
 
   - name: dbaas
-    version: ~1.x
+    version: ~0.x
     repository: "@local"
 
   - name: e2mgr
-    version: ~1.x
+    version: ~0.x
     repository: "@local"
 
   - name: e2term
-    version: ~1.x
+    version: ~0.x
     repository: "@local"
 
   - name: submgr
-    version: ~1.x
+    version: ~0.x
     repository: "@local"
 
   - name: rtmgr
-    version: ~1.x
+    version: ~0.x
     repository: "@local"
 
   # Optional Components.
   - name: a1mediator
-    version: ~1.x
+    version: ~0.x
     repository: "@local"
     condition: nearrtric.installA1Mediator
 
   - name: alarmmanager
-    version: ~1.x
+    version: ~0.x
     repository: "@local"
     condition: nearrtric.installAlarmManager
 
   # TODO: Maybe a third party component?
   - name: jaegeradapter
-    version: ~1.x
+    version: ~0.x
     repository: "@local"
     condition: nearrtric.installJaegerAdapter
 
   - name: o1mediator
-    version: ~1.x
+    version: ~0.x
     repository: "@local"
     condition: nearrtric.installO1Mediator
 
   - name: vespamgr
-    version: ~1.x
+    version: ~0.x
     repository: "@local"
     condition: nearrtric.installVespamgr
 
   - name: xapp-onboarder
-    version: ~1.x
+    version: ~0.x
     repository: "@local"
     condition: nearrtric.installXappOnboarder
 
@@ -86,4 +86,3 @@ dependencies:
     version: ~2.1.0
     repository: "@influxdata"
     condition: nearrtric.installInfluxDB
-

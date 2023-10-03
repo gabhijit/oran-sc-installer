@@ -16,6 +16,7 @@
 ################################################################################
 
 apiVersion: v2
-description: Common templates for inclusion in other charts
-name: ric-common
-version: 3.3.2
+description: Common templates for inclusion in other charts for the Near RT RIC platform.
+name: nearrt-ric-common
+version: 0.1.0
+kubeVersion: " >= 1.22"

@@ -19,9 +19,9 @@ description: Helm Chart for Adapting to ONAP's VES Collector for Near RT RIC Pla
 sources:
   - https://gerrit.o-ran-sc.org/r/admin/repos/ric-plt/vespamgr,general
 name: vespamgr
-version: 1.0.0
+version: 0.1.0
 
 dependencies:
-  - name: ric-common
-    version: ^3.3.2
+  - name: nearrt-ric-common
+    version: ~0.x
     repository: "@local"

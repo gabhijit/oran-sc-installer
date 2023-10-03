@@ -21,10 +21,10 @@ description: Helm Chart for XApp Onboarder for the Near RT RIC Platform.
 name: xapp-onboarder
 sources:
   - https://gerrit.o-ran-sc.org/r/gitweb?p=ric-plt/appmgr.git;a=tree;f=xapp_orchestrater/dev
-version: 1.0.0
+version: 0.1.0
 kubeVersion: " >= 1.22"
 
 dependencies:
-  - name: ric-common
-    version: ^3.1.0
+  - name: nearrt-ric-common
+    version: ~0.x
     repository: "@local"

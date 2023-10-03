@@ -14,35 +14,20 @@
 #   limitations under the License.                                             #
 ################################################################################
 
-
-{{- define "common.name.mrsub" -}}
-  {{- printf "mrsub" -}}
+{{- define "locate" -}}
+  {{- $ctx := .ctx }}
+  {{- $keylist := .keylist }}
+  {{- $currentkey := first $keylist -}}
+  {{- $restkeys := rest $keylist -}}
+  {{- if empty $restkeys -}}
+    {{- $result := index $ctx $currentkey -}}
+    {{- if not (empty $result) -}}
+      {{- $result -}}
+    {{- end -}}
+  {{- else -}}
+    {{- with index $ctx $currentkey }}
+      {{- $newctx := dict "ctx" . "keylist" $restkeys -}}
+      {{- include "locate" $newctx -}}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
-
-{{- define "common.fullname.mrsub" -}}
-  {{- $name := ( include "common.name.mrsub" . ) -}}
-  {{- $namespace := ( include "common.namespace.aux" . ) -}}
-  {{- printf "%s-%s" $namespace $name | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
-
-
-
-{{- define "common.deploymentname.mrsub" -}}
-  {{- $name := ( include "common.fullname.mrsub" . ) -}}
-  {{- printf "deployment-%s" $name | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
-
-
-{{- define "common.configmapname.mrsub" -}}
-  {{- $name := ( include "common.fullname.mrsub" . ) -}}
-  {{- printf "configmap-%s" $name | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
-
-
-{{- define "common.containername.mrsub" -}}
-  {{- $name := ( include "common.fullname.mrsub" . ) -}}
-  {{- printf "container-%s" $name | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
-
-
-{{- define "common.serviceport.mrsub.http" -}}8080{{- end -}}
