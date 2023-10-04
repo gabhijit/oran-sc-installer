@@ -13,7 +13,6 @@
 # limitations under the License.
 
 apiVersion: v2
-appVersion: "1.0.0"
 description: A Helm chart to deploy topology
 name: topology
 version: 1.0.0

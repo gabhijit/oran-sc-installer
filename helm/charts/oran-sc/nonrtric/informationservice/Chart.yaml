@@ -15,7 +15,6 @@
 ################################################################################
 
 apiVersion: v2
-appVersion: "1.0.0"
 description: A Helm chart for Information Coordinator Service
 name: informationservice
 version: 1.0.0

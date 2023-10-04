@@ -1,7 +1,6 @@
 apiVersion: v2
 name: nonrtric
 version: 1.0.0
-appVersion: test
 description: Open Radio Access Network (ORAN)
 home: https://www.o-ran.org/
 sources:

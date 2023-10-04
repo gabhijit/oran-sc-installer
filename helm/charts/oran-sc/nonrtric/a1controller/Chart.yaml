@@ -15,7 +15,6 @@
 ################################################################################
 
 apiVersion: v2
-appVersion: "2.0.0"
 description: A Helm chart for nonrtric a1controller
 name: a1controller
 version: 2.0.0

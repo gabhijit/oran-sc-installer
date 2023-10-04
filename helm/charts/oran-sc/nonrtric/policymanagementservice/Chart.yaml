@@ -15,7 +15,6 @@
 ################################################################################
 
 apiVersion: v2
-appVersion: "2.0.0"
 description: A Helm chart for Policy Management Service
 name: policymanagementservice
 version: 2.0.0
